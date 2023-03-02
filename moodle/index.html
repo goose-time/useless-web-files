@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Formel</title>
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+            font-family: Calibri;
+        }
+    </style>
+    <script>
+        function random(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function generateFormula(x, y, z, d) {
+            formula = '';
+
+            // x handling
+            if (x > 1 || x < -1) {
+                formula += `${x}x `;
+            }
+            else if (x == 1) {
+                formula += 'x ';
+            }
+            else if (x == -1) {
+                formula += '-x ';
+            }
+
+            // y handling
+            if (y > 1) {
+                formula += `+ ${y}y `;
+            }
+            else if (y < -1) {
+                formula += `- ${Math.abs(y)}y `;
+            }
+            else if (y == 1) {
+                formula += '+ y ';
+            }
+            else if (y == -1) {
+                formula += '- y ';
+            }
+
+            // z handling
+            if (z > 1) {
+                formula += `+ ${z}z `;
+            }
+            else if (z < -1) {
+                formula += `- ${Math.abs(z)}z `;
+            }
+            else if (z == 1) {
+                formula += '+ z ';
+            }
+            else if (z == -1) {
+                formula += '- z ';
+            }
+
+            formula += ` = ${d}`;
+
+            return formula;
+        }
+
+        document.body.innerText = generateFormula(random(-3, 3), random(-3, 3), random(-3, 3), random(-5, 5))
+    </script>
+</body>
+</html>
